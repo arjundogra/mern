@@ -6,13 +6,17 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [cPassword, setCPassword] = useState("");
 
-  useEffect(() => {
-    if (password !== cPassword) {
-      alert("Wrong");
-    }
-  }, [cPassword]);
   const handleSubmit = () => {
-    alert("Hello");
+    if (password == cPassword) {
+      var data = {
+        name: name,
+        email: email,
+        password: password,
+      };
+      console.log(data);
+    } else {
+      alert("Enter Password Again");
+    }
   };
   return (
     <div className="form">
@@ -23,6 +27,7 @@ function Signup() {
           type="text"
           placeholder="Name"
           value={name}
+          required="required"
           onChange={(e) => setName(e.target.value)}
         />
       </div>
@@ -32,6 +37,7 @@ function Signup() {
           type="email"
           placeholder="Email Id"
           value={email}
+          required="required"
           onChange={(e) => setEmail(e.target.value)}
         />
       </div>
@@ -41,6 +47,7 @@ function Signup() {
           type="password"
           placeholder="Password"
           value={password}
+          required="required"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
@@ -50,6 +57,7 @@ function Signup() {
           type="password"
           placeholder="Confirm Password"
           value={cPassword}
+          required="required"
           onChange={(e) => setCPassword(e.target.value)}
         />
       </div>
