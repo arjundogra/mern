@@ -12,6 +12,7 @@ function Signup() {
         name: name,
         email: email,
         password: password,
+        some,
       };
       console.log(data);
     } else {
