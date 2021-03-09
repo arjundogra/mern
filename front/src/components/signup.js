@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+const axios = require("axios").default;
 
 function Signup() {
   const [name, setName] = useState("");
@@ -12,8 +13,14 @@ function Signup() {
         name: name,
         email: email,
         password: password,
-        some,
       };
+      axios.get("http://localhost:8000/")
+        .then((r)=>{
+          console.log(r)
+        })
+      axios.post("http://localhost:8000/",data)
+        .then((r)=> alert(r.data)
+        )  
       console.log(data);
     } else {
       alert("Enter Password Again");
